@@ -1,11 +1,34 @@
+body {
+    background-color: rgb(78, 78, 78);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    /* AYUDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
+    display: grid;
+    background-color: rgb(226, 186, 43);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 15px 10px 0px 5px #00000033;
+}
+
 .screen {
     height: 50px;
-    width: 150px;
+    width: 205px;
     margin-bottom: 10px;
+    border-radius: 8px;
+    font-size: 30px;
 }
 
 .keys {
     width: 250px;
+}
+
+.keys input[value="C"] {
+    width: 105px
 }
 
 .btn,
@@ -13,4 +36,13 @@
     width: 50px;
     height: 50px;
     margin-bottom: 5px;
+}
+
+.input .keys {
+    background-color: aqua;
+}
+
+input:active {
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
 }
