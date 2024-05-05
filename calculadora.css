@@ -7,20 +7,21 @@ body {
 }
 
 .container {
-    /* AYUDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
     display: grid;
     background-color: rgb(226, 186, 43);
     padding: 15px;
     border-radius: 15px;
     box-shadow: 15px 10px 0px 5px #00000033;
+    width: 215px;
 }
 
 .screen {
-    height: 50px;
+    height: 55px;
     width: 205px;
     margin-bottom: 10px;
     border-radius: 8px;
-    font-size: 30px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 25px;
 }
 
 .keys {

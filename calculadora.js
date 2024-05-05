@@ -6,7 +6,7 @@ const botones = document.querySelectorAll(".btn, .operator");
 
 botones.forEach(boton => {
     boton.addEventListener("click", () => {
-        const botonApretado = boton.value;  // Usar value ya que es un elemento input
+        const botonApretado = boton.value;  // Guardado del contenido del boton pulsado
 
         // Limpia la pantalla si se presiona 'C'
         if (boton.value === "C") {
@@ -14,7 +14,7 @@ botones.forEach(boton => {
             return;
         }
 
-        // Borra el último carácter o muestra '0' si es necesario
+        // Borra el ultimo caracter o el error reseteando a "0"
         if (boton.value === "←") {
             if (pantalla.value.length === 1 || pantalla.value === "Syntax ERROR") {
                 pantalla.value = "0";
@@ -24,9 +24,17 @@ botones.forEach(boton => {
             return;
         }
 
-        // Evalúa la expresión cuando se presiona '='
+        // Da el resultado cuando se presiona '='
         if (boton.value === "=") {
             try {
+                if (pantalla.value.includes("^")) {// Calcula la potencia
+                    const partes = pantalla.value.split("^");
+                    const base = parseFloat(partes[0]);
+                    const exponente = parseFloat(partes[1]);
+                    const resultado = Math.pow(base, exponente);
+                    pantalla.value = resultado;
+                    return;
+                }
                 pantalla.value = eval(pantalla.value);
             } catch {
                 pantalla.value = "Syntax ERROR";
@@ -34,10 +42,9 @@ botones.forEach(boton => {
             return;
         }
 
-        // Agrega el valor del botón presionado a la pantalla
+        // Agrega el valor del boton presionado a la pantalla
         if (pantalla.value === "0") {
-            if (botonApretado === ".") {
-                // Permite agregar decimal después del cero inicial
+            if (botonApretado === ".") {// Permite agregar decimal después del cero inicial
                 pantalla.value += botonApretado;
             } else {
                 pantalla.value = botonApretado;
@@ -45,48 +52,5 @@ botones.forEach(boton => {
         } else {
             pantalla.value += botonApretado;
         }
-
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
